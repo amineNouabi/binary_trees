@@ -4,7 +4,6 @@
  * binary_tree_height - computes tree height
  *
  * @tree: pointer to the root node
- * @func: pointer to a function to call for each node
  *
  * Return: height of the tree
  */
