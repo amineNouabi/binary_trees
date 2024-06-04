@@ -2,7 +2,8 @@
 #include <stdlib.h>
 
 /**
- * binary_tree_delete - Deletes a binary tree
+ * binary_tree_delete - Deletes a binary tree using DFS post index
+ *			to ensure we deleting leafs first and then frees parent.
  * @tree: pointer to the root node
  *
  * Return: void
