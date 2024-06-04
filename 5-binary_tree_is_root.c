@@ -2,7 +2,7 @@
 #include <stdlib.h>
 
 /**
- * binary_tree_is_leaf - checks if a node is root
+ * binary_tree_is_root - checks if a node is root
  * @node: node to check
  *
  * Return: void
