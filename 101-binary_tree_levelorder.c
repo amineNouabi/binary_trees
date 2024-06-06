@@ -2,6 +2,40 @@
 #include <stdlib.h>
 
 /**
+ * binary_tree_levelorder - goes through a binary tree
+ *							using level-order traversal
+ * @tree: pointer to the root node of the tree to traverse
+ * @func: pointer to a function to call for each node
+ */
+void binary_tree_levelorder(const binary_tree_t *tree, void (*func)(int))
+{
+	queue_t			*queue;
+	binary_tree_t	*cursor;
+	int		is_empty = 0;
+
+	if (!tree || !func)
+		return;
+
+	cursor = (binary_tree_t *) tree;
+
+	queue = create_queue();
+	if (!queue)
+		return;
+
+	queue_push(queue, cursor);
+	is_empty = queue_is_empty(queue);
+
+	while (!is_empty)
+	{
+		cursor = queue_pop(queue);
+
+		func(cursor->n);
+		queue_push(queue, cursor->left);
+		queue_push(queue, cursor->right);
+	}
+}
+
+/**
  * create_queue - creates a queue
  * Return: pointer to the queue
  */
@@ -76,38 +110,4 @@ int queue_is_empty(queue_t *queue)
 	if (!queue->head)
 		return (1);
 	return (0);
-}
-
-/**
- * binary_tree_levelorder - goes through a binary tree
- *							using level-order traversal
- * @tree: pointer to the root node of the tree to traverse
- * @func: pointer to a function to call for each node
- */
-void binary_tree_levelorder(const binary_tree_t *tree, void (*func)(int))
-{
-	queue_t			*queue;
-	binary_tree_t	*cursor;
-	int		is_empty = 0;
-
-	if (!tree || !func)
-		return;
-
-	cursor = (binary_tree_t *) tree;
-
-	queue = create_queue();
-	if (!queue)
-		return;
-
-	queue_push(queue, cursor);
-	is_empty = queue_is_empty(queue);
-
-	while (!is_empty)
-	{
-		cursor = queue_pop(queue);
-
-		func(cursor->n);
-		queue_push(queue, cursor->left);
-		queue_push(queue, cursor->right);
-	}
 }

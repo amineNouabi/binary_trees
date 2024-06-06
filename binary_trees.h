@@ -92,4 +92,10 @@ binary_tree_t *binary_tree_rotate_right(binary_tree_t *tree);
 void binary_tree_levelorder(const binary_tree_t *tree, void (*func)(int));
 
 
+/* Queue functions */
+queue_t *create_queue(void);
+void queue_push(queue_t *queue, binary_tree_t *node);
+binary_tree_t *queue_pop(queue_t *queue);
+int queue_is_empty(queue_t *queue);
+
 #endif /* _BINARY_TREES_H_ */
