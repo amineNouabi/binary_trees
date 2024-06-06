@@ -11,7 +11,7 @@ void binary_tree_levelorder(const binary_tree_t *tree, void (*func)(int))
 {
 	queue_t			*queue;
 	binary_tree_t	*cursor;
-	int		is_empty = 0;
+	int				is_empty;
 
 	if (!tree || !func)
 		return;
@@ -33,6 +33,8 @@ void binary_tree_levelorder(const binary_tree_t *tree, void (*func)(int))
 		queue_push(queue, cursor->left);
 		queue_push(queue, cursor->right);
 	}
+
+	free(queue);
 }
 
 /**
