@@ -17,13 +17,11 @@ void binary_tree_levelorder(const binary_tree_t *tree, void (*func)(int))
 		return;
 
 	cursor = (binary_tree_t *) tree;
-
 	queue = create_queue();
 	if (!queue)
 		return;
 
 	queue_push(queue, cursor);
-
 	while (queue->head)
 	{
 		cursor = queue_pop(queue);
