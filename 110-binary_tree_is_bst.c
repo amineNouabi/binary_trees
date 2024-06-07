@@ -33,7 +33,7 @@ int is_lower(const binary_tree_t *tree, int n)
 	if (!tree)
 		return (1);
 
-	if (tree->n >= n)
+	if (tree->n > n)
 		return (0);
 
 	return (is_lower(tree->left, n) && is_lower(tree->right, n));
@@ -52,7 +52,7 @@ int is_greater(const binary_tree_t *tree, int n)
 	if (!tree)
 		return (1);
 
-	if (tree->n <= n)
+	if (tree->n < n)
 		return (0);
 
 	return (is_greater(tree->left, n) && is_greater(tree->right, n));
