@@ -20,7 +20,6 @@ struct binary_tree_s
 	struct binary_tree_s *right;
 };
 
-typedef struct queue_node_s queue_node_t;
 typedef struct binary_tree_s binary_tree_t;
 typedef struct binary_tree_s bst_t;
 typedef struct binary_tree_s avl_t;
@@ -96,6 +95,5 @@ void binary_tree_levelorder(const binary_tree_t *tree, void (*func)(int));
 queue_t *create_queue(void);
 void queue_push(queue_t *queue, binary_tree_t *node);
 binary_tree_t *queue_pop(queue_t *queue);
-int queue_is_empty(queue_t *queue);
 
 #endif /* _BINARY_TREES_H_ */
