@@ -98,4 +98,10 @@ queue_t *create_queue(void);
 void queue_push(queue_t *queue, binary_tree_t *node);
 binary_tree_t *queue_pop(queue_t *queue);
 
+
+/* Helper functions */
+int is_greater(const binary_tree_t *tree, int n);
+int is_lower(const binary_tree_t *tree, int n);
+
+
 #endif /* _BINARY_TREES_H_ */

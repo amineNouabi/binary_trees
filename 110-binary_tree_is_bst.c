@@ -12,17 +12,48 @@ int binary_tree_is_bst(const binary_tree_t *tree)
 	if (!tree)
 		return (0);
 
-	if (tree->left && tree->left->n > tree->n)
+	if (!is_lower(tree->left, tree->n) || !is_greater(tree->right, tree->n))
 		return (0);
 
-	if (tree->right && tree->right->n < tree->n)
-		return (0);
-
-	if (tree->left && !binary_tree_is_bst(tree->left))
-		return (0);
-
-	if (tree->right && !binary_tree_is_bst(tree->right))
+	if (!binary_tree_is_bst(tree->left) || !binary_tree_is_bst(tree->right))
 		return (0);
 
 	return (1);
+}
+
+/**
+ * is_lower - checks if all nodes are lower than n
+ * @tree: pointer to the root node
+ * @n: value to compare
+ *
+ * Return: 1 if all nodes are lower, 0 if not
+ */
+int is_lower(const binary_tree_t *tree, int n)
+{
+	if (!tree)
+		return (1);
+
+	if (tree->n >= n)
+		return (0);
+
+	return (is_lower(tree->left, n) && is_lower(tree->right, n));
+}
+
+
+/**
+ * is_greater - checks if all nodes are greater than n
+ * @tree: pointer to the root node
+ * @n: value to compare
+ *
+ * Return: 1 if all nodes are greater, 0 if not
+ */
+int is_greater(const binary_tree_t *tree, int n)
+{
+	if (!tree)
+		return (1);
+
+	if (tree->n <= n)
+		return (0);
+
+	return (is_greater(tree->left, n) && is_greater(tree->right, n));
 }
